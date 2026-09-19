@@ -1,6 +1,7 @@
 ---
 title: Purdue 해외 연구 프로그램
 order: 2
+roles: ["( 빈칸: 예) Research )"]
 category: "( 빈칸: 연구 / 데이터 분석 등 )"
 summary: "( 빈칸: 한 줄 요약 )"
 period: 2026.06 – 2026.07

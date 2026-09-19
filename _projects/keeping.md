@@ -1,6 +1,7 @@
 ---
 title: Keeping — AI 매장 비서
 order: 1
+roles: ["( 빈칸: 예) AI, Backend )"]
 category: 모바일 앱 · AI
 summary: 소규모 식당의 재고를 모니터링하고, 재고 부족·소비기한 임박을 자동 감지해 발주 초안을 만들어 주는 AI 매장 비서 앱
 period: "( 빈칸: 2025.09 – 2026.06 )"

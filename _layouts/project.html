@@ -2,10 +2,10 @@
 layout: default
 ---
 <article class="project-page">
-  <a class="back" href="{{ '/#projects' | relative_url }}">← 프로젝트 목록</a>
+  <a class="back" href="{{ '/projects/' | relative_url }}">← Projects</a>
 
   <header class="project-head">
-    <p class="eyebrow">{{ page.category }}</p>
+    <p class="eyebrow">{{ page.category }}{% if page.roles %} · {{ page.roles | join: ", " }}{% endif %}</p>
     <h1>{{ page.title }}</h1>
     <p class="lead">{{ page.summary }}</p>
 
@@ -24,12 +24,8 @@ layout: default
   </header>
 
   {% if page.thumbnail %}
-  <figure class="hero-img">
-    <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }} 화면">
-  </figure>
+  <figure class="hero-img"><img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }} 화면"></figure>
   {% endif %}
 
-  <div class="prose">
-    {{ content }}
-  </div>
+  <div class="prose">{{ content }}</div>
 </article>

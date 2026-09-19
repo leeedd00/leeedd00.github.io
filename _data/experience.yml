@@ -1,20 +1,16 @@
-- period: 2023 ~ 현재
-  title: 경상국립대학교 유통물류학 & 컴퓨터공학 복수전공
-- period: 2024.09 – 2024.12
-  title: 동남권 창업동아리
-  detail: 노인 전용 양갱 제작, 시제품 품평회 (장려상, 인기상)
-- period: 2025.01 – 2025.12
-  title: 유통물류학과 학생회 총무
-  detail: "( 빈칸: 맡은 일 한 줄 )"
-- period: 2025.07 – 2025.08
-  title: La Salle University 어학연수
-  detail: "( 빈칸 )"
-- period: 2025.09 – 2025.12
-  title: 린스타트업 · 재고관리 어플 외주
-  detail: "( 빈칸 )"
-- period: 2026.03 – 2026.06
-  title: 재고관리 어플 고도화
-  detail: "( 빈칸 )"
+# 실무 · 프로젝트 경험 (최신순)
 - period: 2026.06 – 2026.07
   title: Purdue 해외 연구 프로그램
+  org: "( 빈칸: 소속 / 프로그램명 )"
+  detail: "( 빈칸: 무엇을 연구했는지 한두 줄 )"
+  link: /projects/purdue/
+- period: 2026.03 – 2026.06
+  title: 재고관리 어플 고도화
+  org: "( 빈칸 )"
   detail: "( 빈칸 )"
+  link: /projects/keeping/
+- period: 2025.09 – 2025.12
+  title: 린스타트업 · 재고관리 어플 외주
+  org: "( 빈칸 )"
+  detail: "( 빈칸 )"
+  link: /projects/keeping/

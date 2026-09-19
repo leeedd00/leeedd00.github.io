@@ -7,10 +7,15 @@
 
 | 파일 | 수정할 때 |
 |------|-----------|
-| `index.md` | 메인 페이지 소개 문구 |
-| `_projects/*.md` | 프로젝트 하나 = 파일 하나. 상세 페이지가 자동 생성됨 |
-| `_data/experience.yml` | 경험 타임라인 |
-| `_data/awards.yml` | 수상 · 자격증 |
+| `index.md` | About Me 페이지 |
+| `experience.md` `education.md` `contact.md` `projects.md` `awards.md` `activities.md` `blog.md` `gallery.md` | 각 메뉴 페이지. 보통 건드릴 일 없음 (내용은 `_data/`에서) |
+| `_projects/*.md` | 프로젝트 하나 = 파일 하나. 카드와 상세 페이지가 자동 생성됨 |
+| `_posts/YYYY-MM-DD-제목.md` | 블로그 글 하나 = 파일 하나 |
+| `_data/experience.yml` | Experience 페이지 (실무 · 프로젝트 경험) |
+| `_data/education.yml` | Education 페이지 |
+| `_data/activities.yml` | Activities 페이지 (동아리 · 학생회 · 대외활동) |
+| `_data/awards.yml` | Awards 페이지 (수상 · 자격증) |
+| `_data/gallery.yml` | Gallery 페이지. 사진은 `assets/img/gallery/`에 |
 | `_data/skills.yml` | 기술 스택 |
 | `_data/jobs.yml` | 관심 직무 |
 | `assets/img/` | 프로젝트 썸네일 이미지 |

@@ -4,6 +4,7 @@
 ---
 title: ( 빈칸: 프로젝트 이름 )
 order: 3
+roles: [( 빈칸: 예) AI, Lead )]
 category: ( 빈칸 )
 summary: ( 빈칸: 한 줄 요약 )
 period: ( 빈칸 )

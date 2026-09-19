@@ -9,15 +9,29 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
+  {% assign here = page.url %}
   <header class="site-header">
     <div class="container nav">
-      <a class="brand" href="{{ '/' | relative_url }}">Donggeon Lee</a>
-      <nav>
-        <a href="{{ '/#about' | relative_url }}">About</a>
-        <a href="{{ '/#projects' | relative_url }}">Projects</a>
-        <a href="{{ '/#experience' | relative_url }}">Experience</a>
-        <a href="{{ '/#contact' | relative_url }}">Contact</a>
-        <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="logo">D</span>
+        <span class="brand-name">DONGGEON LEE</span>
+      </a>
+      <button class="nav-toggle" aria-label="메뉴" onclick="document.body.classList.toggle('nav-open')">☰</button>
+      <nav class="menu">
+        <div class="menu-group">
+          <a href="{{ '/' | relative_url }}" {% if here == '/' %}class="on"{% endif %}>About Me</a>
+          <a href="{{ '/experience/' | relative_url }}" {% if here contains '/experience/' %}class="on"{% endif %}>Experience</a>
+          <a href="{{ '/education/' | relative_url }}" {% if here contains '/education/' %}class="on"{% endif %}>Education</a>
+          <a href="{{ '/contact/' | relative_url }}" {% if here contains '/contact/' %}class="on"{% endif %}>Contact</a>
+        </div>
+        <span class="menu-divider"></span>
+        <div class="menu-group">
+          <a href="{{ '/projects/' | relative_url }}" {% if here contains '/projects/' %}class="on"{% endif %}>Projects</a>
+          <a href="{{ '/awards/' | relative_url }}" {% if here contains '/awards/' %}class="on"{% endif %}>Awards</a>
+          <a href="{{ '/activities/' | relative_url }}" {% if here contains '/activities/' %}class="on"{% endif %}>Activities</a>
+          <a href="{{ '/blog/' | relative_url }}" {% if here contains '/blog/' or page.layout == 'post' %}class="on"{% endif %}>Blog</a>
+          <a href="{{ '/gallery/' | relative_url }}" {% if here contains '/gallery/' %}class="on"{% endif %}>Gallery</a>
+        </div>
       </nav>
     </div>
   </header>
@@ -28,7 +42,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      © {{ 'now' | date: "%Y" }} {{ site.author.name }} · <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+      © {{ 'now' | date: "%Y" }} {{ site.author.name }} · <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a> · <a href="https://github.com/{{ site.author.github }}">GitHub</a>
     </div>
   </footer>
 </body>

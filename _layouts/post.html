@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="project-page">
+  <a class="back" href="{{ '/blog/' | relative_url }}">← Blog</a>
+  <header class="project-head">
+    <p class="eyebrow">{{ page.date | date: "%Y.%m.%d" }}{% if page.tags.size > 0 %} · {{ page.tags | join: ", " }}{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+  </header>
+  <div class="prose">{{ content }}</div>
+</article>

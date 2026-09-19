@@ -3,6 +3,7 @@ description: AI · Distribution & Logistics 포트폴리오
 url: "https://leeedd00.github.io"
 baseurl: ""
 lang: ko
+permalink: pretty
 
 author:
   name: 이동건 (Donggeon Lee)
@@ -15,14 +16,12 @@ collections:
     permalink: /projects/:name/
 
 defaults:
-  - scope:
-      path: ""
-      type: projects
-    values:
-      layout: project
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+  - scope: { path: "" }
+    values: { layout: page }
 
 markdown: kramdown
-exclude:
-  - README.md
-  - Gemfile
-  - Gemfile.lock
+exclude: [README.md, Gemfile, Gemfile.lock]

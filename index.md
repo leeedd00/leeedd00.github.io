@@ -1,22 +1,38 @@
 ---
 layout: default
+title: About Me
 ---
 
-<section class="hero" id="about">
+<section class="hero">
   <p class="eyebrow">AI · Distribution & Logistics</p>
   <h1>안녕하세요,<br>이동건 (Ethan) 입니다.</h1>
   <p class="lead">( 빈칸: 나를 한 줄로 소개하는 문장 )</p>
-  <p class="hero-sub">경상국립대학교 유통물류학 & 컴퓨터공학 복수전공 · 관심 분야: BigData, AI Agent, CS, Distribution & Logistics</p>
+  <p class="hero-sub">경상국립대학교 유통물류학 & 컴퓨터공학 복수전공</p>
+  <p class="links">
+    <a class="btn primary" href="{{ '/projects/' | relative_url }}">프로젝트 보기</a>
+    <a class="btn" href="{{ '/contact/' | relative_url }}">연락하기</a>
+  </p>
+</section>
+
+<section class="section">
+  <h2>소개</h2>
+  <div class="prose">
+    <p>( 빈칸: 3~5문장 자기소개. 어떤 문제에 관심이 있고, 어떤 경험을 해왔고, 무엇을 하고 싶은지 )</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>관심 분야</h2>
+  <p class="tags">
+    <span class="tag lg">BigData</span><span class="tag lg">AI Agent</span><span class="tag lg">CS</span><span class="tag lg">Distribution & Logistics</span>
+  </p>
 </section>
 
 <section class="section">
   <h2>관심 직무</h2>
   <div class="grid-2">
     {% for j in site.data.jobs %}
-    <div class="box">
-      <h3>{{ j.title }}</h3>
-      <p>{{ j.why }}</p>
-    </div>
+    <div class="box"><h3>{{ j.title }}</h3><p>{{ j.why }}</p></div>
     {% endfor %}
   </div>
 </section>
@@ -30,43 +46,11 @@ layout: default
   </dl>
 </section>
 
-<section class="section" id="projects">
-  <h2>프로젝트</h2>
+<section class="section">
+  <h2>최근 프로젝트</h2>
   <div class="grid-3">
     {% assign projects = site.projects | sort: "order" %}
-    {% for p in projects %}{% include project-card.html p=p %}{% endfor %}
+    {% for p in projects limit: 3 %}{% include project-card.html p=p %}{% endfor %}
   </div>
-</section>
-
-<section class="section" id="experience">
-  <h2>경험</h2>
-  <ol class="timeline">
-    {% for e in site.data.experience %}
-    <li>
-      <span class="when">{{ e.period }}</span>
-      <div>
-        <h3>{{ e.title }}</h3>
-        {% if e.detail %}<p>{{ e.detail }}</p>{% endif %}
-      </div>
-    </li>
-    {% endfor %}
-  </ol>
-</section>
-
-<section class="section">
-  <h2>수상 · 자격증</h2>
-  <ul class="plain">
-    {% for a in site.data.awards %}
-    <li><span class="when">{{ a.when }}</span> {{ a.title }}</li>
-    {% endfor %}
-  </ul>
-</section>
-
-<section class="section" id="contact">
-  <h2>연락처</h2>
-  <p class="links">
-    <a class="btn" href="mailto:{{ site.author.email }}">Email</a>
-    <a class="btn" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub ↗</a>
-    <a class="btn" href="( 빈칸: LinkedIn URL )" target="_blank" rel="noopener">LinkedIn ↗</a>
-  </p>
+  <p class="more"><a href="{{ '/projects/' | relative_url }}">전체 프로젝트 보기 →</a></p>
 </section>

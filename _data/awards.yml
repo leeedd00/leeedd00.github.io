@@ -1,4 +1,15 @@
-- when: 자격증
-  title: ADsP, SQLD
-- when: 2024.12
-  title: 동남권 창업동아리 시제품 품평회 장려상 · 인기상
+prizes:
+  - when: 2024.12
+    title: 시제품 품평회 장려상 · 인기상
+    org: 동남권 창업동아리
+    detail: 노인 전용 양갱 제작
+  - when: "( 빈칸 )"
+    title: "( 빈칸 )"
+    org: "( 빈칸 )"
+certificates:
+  - when: "( 빈칸: 취득일 )"
+    title: ADsP (데이터분석 준전문가)
+    org: 한국데이터산업진흥원
+  - when: "( 빈칸: 취득일 )"
+    title: SQLD (SQL 개발자)
+    org: 한국데이터산업진흥원
