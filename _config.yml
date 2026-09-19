@@ -14,10 +14,15 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  awards:
+    output: true
+    permalink: /awards/:name/
 
 defaults:
   - scope: { path: "", type: projects }
     values: { layout: project }
+  - scope: { path: "", type: awards }
+    values: { layout: award }
   - scope: { path: "", type: posts }
     values: { layout: post }
   - scope: { path: "" }

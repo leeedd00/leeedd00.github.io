@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<article class="project-page">
+  <a class="back" href="{{ '/awards/' | relative_url }}">← Awards</a>
+
+  <header class="project-head">
+    <p class="eyebrow">{{ page.category }}{% if page.rank %} · {{ page.rank }}{% endif %}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.summary }}</p>
+
+    <dl class="meta">
+      <div><dt>{% if page.category == '자격증' %}취득일{% else %}수상일{% endif %}</dt><dd>{{ page.when }}</dd></div>
+      <div><dt>{% if page.category == '자격증' %}발급 기관{% else %}주최 · 주관{% endif %}</dt><dd>{{ page.org }}</dd></div>
+      {% if page.team %}<div><dt>팀 구성</dt><dd>{{ page.team }}</dd></div>{% endif %}
+      {% if page.stack %}<div><dt>활용 기술</dt><dd>{% for s in page.stack %}<span class="tag">{{ s }}</span>{% endfor %}</dd></div>{% endif %}
+    </dl>
+
+    {% if page.links %}
+    <p class="links">
+      {% for l in page.links %}<a class="btn" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} ↗</a>{% endfor %}
+    </p>
+    {% endif %}
+  </header>
+
+  {% if page.thumbnail %}
+  <figure class="hero-img"><img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}"></figure>
+  {% endif %}
+
+  <div class="prose">{{ content }}</div>
+</article>

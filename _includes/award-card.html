@@ -1,0 +1,11 @@
+<a class="card" href="{{ include.a.url | relative_url }}">
+  <div class="card-img">
+    {% if include.a.thumbnail %}<img src="{{ include.a.thumbnail | relative_url }}" alt="{{ include.a.title }}" loading="lazy">{% endif %}
+    {% if include.a.rank %}<span class="badge">{{ include.a.rank }}</span>{% endif %}
+  </div>
+  <div class="card-body">
+    <p class="eyebrow">{{ include.a.when }} · {{ include.a.org }}</p>
+    <h3>{{ include.a.title }}</h3>
+    <p>{{ include.a.summary }}</p>
+  </div>
+</a>
