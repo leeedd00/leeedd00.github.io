@@ -16,8 +16,4 @@ subtitle: 편하게 연락 주세요
     <h3>LinkedIn</h3>
     <p>( 빈칸: LinkedIn URL )</p>
   </div>
-  <div class="box">
-    <h3>Blog</h3>
-    <p>( 빈칸: 외부 블로그가 있으면 URL )</p>
-  </div>
 </div>

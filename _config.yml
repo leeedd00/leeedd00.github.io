@@ -23,8 +23,6 @@ defaults:
     values: { layout: project }
   - scope: { path: "", type: awards }
     values: { layout: award }
-  - scope: { path: "", type: posts }
-    values: { layout: post }
   - scope: { path: "" }
     values: { layout: page }
 
