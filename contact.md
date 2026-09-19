@@ -14,6 +14,6 @@ subtitle: 편하게 연락 주세요
   </div>
   <div class="box">
     <h3>LinkedIn</h3>
-    <p>( 빈칸: LinkedIn URL )</p>
+    <p><a href="https://www.linkedin.com/in/%EB%8F%99%EA%B1%B4-%EC%9D%B4-5b73753a5/" target="_blank" rel="noopener">linkedin.com/in/동건-이</a></p>
   </div>
 </div>
