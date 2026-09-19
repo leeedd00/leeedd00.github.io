@@ -6,7 +6,7 @@
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
   {% assign here = page.url %}
