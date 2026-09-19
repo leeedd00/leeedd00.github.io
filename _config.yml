@@ -1,0 +1,28 @@
+title: Donggeon Lee (Ethan)
+description: AI · Distribution & Logistics 포트폴리오
+url: "https://leeedd00.github.io"
+baseurl: ""
+lang: ko
+
+author:
+  name: 이동건 (Donggeon Lee)
+  email: donggeon9850@gmail.com
+  github: leeedd00
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+markdown: kramdown
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

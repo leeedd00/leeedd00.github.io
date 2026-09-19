@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<article class="project-page">
+  <a class="back" href="{{ '/#projects' | relative_url }}">← 프로젝트 목록</a>
+
+  <header class="project-head">
+    <p class="eyebrow">{{ page.category }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.summary }}</p>
+
+    <dl class="meta">
+      <div><dt>기간</dt><dd>{{ page.period }}</dd></div>
+      <div><dt>역할</dt><dd>{{ page.role }}</dd></div>
+      <div><dt>팀 구성</dt><dd>{{ page.team }}</dd></div>
+      <div><dt>기술 스택</dt><dd>{% for s in page.stack %}<span class="tag">{{ s }}</span>{% endfor %}</dd></div>
+    </dl>
+
+    {% if page.links %}
+    <p class="links">
+      {% for l in page.links %}<a class="btn" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} ↗</a>{% endfor %}
+    </p>
+    {% endif %}
+  </header>
+
+  {% if page.thumbnail %}
+  <figure class="hero-img">
+    <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }} 화면">
+  </figure>
+  {% endif %}
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

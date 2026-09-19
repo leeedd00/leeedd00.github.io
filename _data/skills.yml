@@ -1,0 +1,10 @@
+- group: Languages
+  items: [Python, TypeScript, SQL]
+- group: Backend & AI
+  items: [FastAPI, SQLAlchemy, Pandas, scikit-learn]
+- group: Mobile & Frontend
+  items: [React Native, Expo]
+- group: Database & Infra
+  items: [PostgreSQL, Supabase, Docker, Git]
+- group: Tools
+  items: [VS Code, Notion, Claude Code]

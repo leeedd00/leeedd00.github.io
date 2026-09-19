@@ -1,0 +1,11 @@
+<a class="card" href="{{ include.p.url | relative_url }}">
+  {% if include.p.thumbnail %}
+  <div class="card-img"><img src="{{ include.p.thumbnail | relative_url }}" alt="{{ include.p.title }}" loading="lazy"></div>
+  {% endif %}
+  <div class="card-body">
+    <p class="eyebrow">{{ include.p.category }} · {{ include.p.period }}</p>
+    <h3>{{ include.p.title }}</h3>
+    <p>{{ include.p.summary }}</p>
+    <p class="tags">{% for s in include.p.stack limit: 4 %}<span class="tag">{{ s }}</span>{% endfor %}</p>
+  </div>
+</a>
