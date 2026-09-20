@@ -161,3 +161,7 @@ p { margin: 0 0 .75rem; }
 .screens img { width: 100%; aspect-ratio: 9 / 20; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); background: #fff; }
 .screens figcaption { font-size: .82rem; color: var(--muted); margin-top: .45rem; line-height: 1.45; }
 .small { font-size: .85rem; }
+
+/* 수상 카드: 상패가 다 보이도록 세로 여유 + 중앙 정렬 */
+.award-card .card-img { aspect-ratio: 4 / 3; }
+.award-card .card-img img { object-position: center; }

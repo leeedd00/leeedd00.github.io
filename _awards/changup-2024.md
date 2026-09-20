@@ -1,12 +1,12 @@
 ---
-title: 2024 교내 창업동아리 시제품 품평회 특별상 · 장려상
+title: 동남권 창업동아리 시제품 품평회 특별상 · 장려상
 order: 1
 category: 수상
 rank: 특별상 · 장려상
 when: 2024.12
 org: 경상국립대학교 창업지원단 · LINC 3.0 사업단
 team: "( 빈칸: 예) 4인 팀 )"
-summary: 노인 전용 양갱을 기획·제작해 교내 창업동아리 시제품 품평회에서 특별상과 장려상을 받았습니다.
+summary: 노인 전용 양갱을 기획·제작해 동남권 창업동아리 시제품 품평회에서 특별상과 장려상을 받았습니다.
 thumbnail: /assets/img/awards/changup-2024.jpg
 links:
   - label: 관련 자료
