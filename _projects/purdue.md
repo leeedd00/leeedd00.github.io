@@ -9,11 +9,11 @@ role: "( 확인: 예) 데이터 전처리 · 수확량 예측 모델 · 기후 �
 team: 4인 팀 (Team 07)
 stack: [Python, Pandas, scikit-learn, LightGBM, Genetic Algorithm, Simulated Annealing, Tabu Search, Matplotlib]
 thumbnail: /assets/img/purdue/certificate.jpg
-hero: /assets/img/purdue/optimization_talk.jpg
-hero_caption: 최적화 발표 — Metaheuristics for Optimizing Crop Reallocation Under Climate Change (Team 07, 2026.07)
 photos:
   - src: /assets/img/purdue/presentation.jpg
     caption: ML 발표 — 옥수수 수확량의 기술 추세와 연도별 기상 충격 분리
+  - src: /assets/img/purdue/optimization_talk.jpg
+    caption: 최적화 발표 — Metaheuristics for Optimizing Crop Reallocation Under Climate Change (Team 07)
 links:
   - label: GitHub
     url: "( 빈칸: 팀 코드 저장소 URL )"
