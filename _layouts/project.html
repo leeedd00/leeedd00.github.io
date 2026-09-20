@@ -24,6 +24,10 @@ layout: default
   </header>
 
 
+  {% if page.hero %}
+  <figure class="hero-img"><img src="{{ page.hero | relative_url }}" alt="{{ page.hero_caption | default: page.title }}">{% if page.hero_caption %}<figcaption>{{ page.hero_caption }}</figcaption>{% endif %}</figure>
+  {% endif %}
+
   <div class="prose">{{ content }}</div>
 
   {% if page.photos %}
