@@ -165,3 +165,6 @@ p { margin: 0 0 .75rem; }
 /* 수상 카드: 상패가 다 보이도록 세로 여유 + 중앙 정렬 */
 .award-card .card-img { aspect-ratio: 4 / 3; }
 .award-card .card-img img { object-position: center; }
+
+/* 경험 타임라인 유형 태그 */
+.type-tag { display: inline-block; vertical-align: middle; margin-right: .5rem; padding: .12rem .55rem; border-radius: 999px; background: var(--tag-bg); color: var(--tag-fg); font-size: .75rem; font-weight: 700; }

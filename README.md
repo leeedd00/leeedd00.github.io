@@ -8,11 +8,10 @@
 | 파일 | 수정할 때 |
 |------|-----------|
 | `index.md` | About Me 페이지 |
-| `experience.md` `education.md` `contact.md` `projects.md` `awards.md` `activities.md` | 각 메뉴 페이지. 보통 건드릴 일 없음 (내용은 `_data/`에서) |
+| `experience.md` `education.md` `contact.md` `projects.md` `awards.md` | 각 메뉴 페이지. 보통 건드릴 일 없음 (내용은 `_data/`에서) |
 | `_projects/*.md` | 프로젝트 하나 = 파일 하나. 카드와 상세 페이지가 자동 생성됨 |
-| `_data/experience.yml` | Experience 페이지 (실무 · 프로젝트 경험) |
+| `_data/experience.yml` | Experience 페이지 (프로젝트 · 연구 · 동아리 · 학생회 등 전체 타임라인, `type`으로 구분) |
 | `_data/education.yml` | Education 페이지 |
-| `_data/activities.yml` | Activities 페이지 (동아리 · 학생회 · 대외활동) |
 | `_awards/*.md` | 수상/자격증 하나 = 파일 하나. 카드와 상세 페이지가 자동 생성됨 |
 | `_data/skills.yml` | 기술 스택 |
 | `_data/jobs.yml` | 관심 직무 |
