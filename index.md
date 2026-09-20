@@ -9,7 +9,6 @@ title: About Me
     <a class="btn sm c-github" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub ↗</a>
     <a class="btn sm c-linkedin" href="https://www.linkedin.com/in/%EB%8F%99%EA%B1%B4-%EC%9D%B4-5b73753a5/" target="_blank" rel="noopener">LinkedIn ↗</a>
   </p>
-  <p class="eyebrow">AI · Distribution & Logistics</p>
   <h1>안녕하세요,<br>이동건 (Ethan) 입니다.</h1>
   <p class="hero-sub">경상국립대학교 유통물류학 & 컴퓨터공학 복수전공</p>
   <p class="links">
@@ -30,7 +29,7 @@ title: About Me
 <section class="section">
   <h2>관심 분야</h2>
   <p class="tags">
-    <span class="tag lg">BigData</span><span class="tag lg">AI Agent</span><span class="tag lg">CS</span><span class="tag lg">Distribution & Logistics</span>
+    <span class="tag lg">BigData</span><span class="tag lg">AI Agent</span><span class="tag lg">Computer Engineering</span><span class="tag lg">Distribution & Logistics</span>
   </p>
 </section>
 
