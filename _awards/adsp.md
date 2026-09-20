@@ -2,7 +2,7 @@
 title: ADsP (데이터분석 준전문가)
 order: 10
 category: 자격증
-when: "( 빈칸: 취득일 )"
+when: 2026.03.06
 org: 한국데이터산업진흥원
 summary: 데이터 이해, 데이터 분석 기획, 데이터 분석 전반의 기초 역량을 검증하는 국가공인 자격입니다.
 # thumbnail: /assets/img/awards/adsp.jpg
