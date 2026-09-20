@@ -170,5 +170,12 @@ p { margin: 0 0 .75rem; }
 .type-tag { display: inline-block; vertical-align: middle; margin-right: .5rem; padding: .12rem .55rem; border-radius: 999px; background: var(--tag-bg); color: var(--tag-fg); font-size: .75rem; font-weight: 700; }
 
 /* About Me 상단 연락처 버튼 */
-.contact-row { margin: 0 0 1.75rem; }
+.contact-row { margin: -2.75rem 0 2rem; }
 .btn.sm { padding: .38rem .85rem; font-size: .88rem; border-radius: 999px; }
+
+/* 연락처 버튼 색상 */
+.btn.c-mail { background: #ea4335; border-color: #ea4335; color: #fff; }
+.btn.c-github { background: #181717; border-color: #181717; color: #fff; }
+.btn.c-linkedin { background: #0a66c2; border-color: #0a66c2; color: #fff; }
+.btn.c-mail:hover, .btn.c-github:hover, .btn.c-linkedin:hover { opacity: .88; color: #fff; text-decoration: none; }
+@media (prefers-color-scheme: dark) { .btn.c-github { background: #2d333b; border-color: #2d333b; } }

@@ -5,9 +5,9 @@ title: About Me
 
 <section class="hero">
   <p class="links contact-row">
-    <a class="btn sm" href="mailto:{{ site.author.email }}">✉ Email</a>
-    <a class="btn sm" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub ↗</a>
-    <a class="btn sm" href="https://www.linkedin.com/in/%EB%8F%99%EA%B1%B4-%EC%9D%B4-5b73753a5/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn sm c-mail" href="mailto:{{ site.author.email }}">✉ Email</a>
+    <a class="btn sm c-github" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn sm c-linkedin" href="https://www.linkedin.com/in/%EB%8F%99%EA%B1%B4-%EC%9D%B4-5b73753a5/" target="_blank" rel="noopener">LinkedIn ↗</a>
   </p>
   <p class="eyebrow">AI · Distribution & Logistics</p>
   <h1>안녕하세요,<br>이동건 (Ethan) 입니다.</h1>
