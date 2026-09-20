@@ -15,6 +15,13 @@ title: About Me
   <p class="links">
     <a class="btn primary" href="{{ '/projects/' | relative_url }}">프로젝트 보기</a>
   </p>
+
+  <div class="stats">
+    <div class="stat"><div class="num" data-count="4">4</div><div class="label">프로젝트 · 연구<br>(Keeping 1·2차, 린스타트업, Purdue)</div></div>
+    <div class="stat"><div class="num" data-count="16" data-suffix="%">16%</div><div class="label">수요예측 MAPE<br>29% → 16%로 개선</div></div>
+    <div class="stat"><div class="num" data-count="0.73" data-decimals="2">0.73</div><div class="label">작물 수확량 예측 R²<br>카운티 그룹 교차검증</div></div>
+    <div class="stat"><div class="num" data-count="3">3</div><div class="label">창업 수상<br>우수상 · 특별상 · 장려상</div></div>
+  </div>
 </section>
 
 <section class="section">
