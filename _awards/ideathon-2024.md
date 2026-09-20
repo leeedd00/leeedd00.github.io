@@ -8,6 +8,9 @@ org: 경상국립대학교 · 창업교과목 연계 아이디어톤 프로그�
 team: 1인 (개인 참가)
 summary: 20~30대 비만·성인병 관리를 위한 AI 개인 맞춤 건강관리 서비스와 신규 운동시설 연계 플랫폼 「APT」 아이디어로 장려상을 받았습니다.
 thumbnail: /assets/img/awards/ideathon-2024.jpg
+photos:
+  - src: /assets/img/awards/ideathon-2024-full.jpg
+    caption: APT 서비스 개념 — 발표 당시 아이디어를 바탕으로 다시 그린 화면
 ---
 
 ## 개요
