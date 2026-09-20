@@ -1,6 +1,6 @@
 ---
 title: Education
-subtitle: 학력 · 교육 과정입니다
+subtitle: 학력 · 교육 과정
 ---
 
 <ol class="timeline">

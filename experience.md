@@ -1,6 +1,6 @@
 ---
 title: Experience
-subtitle: 프로젝트 · 연구 · 활동 경험입니다
+subtitle: 프로젝트 · 연구 · 활동 경험
 ---
 
 <ol class="timeline">

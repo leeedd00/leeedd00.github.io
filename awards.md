@@ -1,6 +1,6 @@
 ---
 title: Awards
-subtitle: 수상 · 자격증입니다
+subtitle: 수상 · 자격증
 ---
 
 {% assign awards = site.awards | sort: "order" %}
