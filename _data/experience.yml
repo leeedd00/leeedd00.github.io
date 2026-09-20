@@ -16,13 +16,13 @@
   title: 2025 동남권 린스타트업 스쿨 — 재고관리 앱 MVP 외주 발주 · 관리
   org: 팀 Autoful (주관기관)
   detail: 린스타트업 스쿨 외주 용역비로 재고관리 플랫폼 앱 MVP 제작을 발주. 과업지시서 작성(KAMIS 시세 연동 · 원클릭 발주 · 챗봇 UI · 재고 현황 UI), 개발사 검수, 안드로이드 APK와 소스코드 인수
-  link: /projects/keeping/
+  link: /projects/keeping-web/
 - period: 2025.09 – 2025.12
   type: 프로젝트
   title: Keeping 1차 — 웹 기반 재고 · 발주 자동화 플랫폼
   org: 3인 팀 프로젝트 (E조)
   detail: 소상공인 재고 · 발주 자동화 웹 플랫폼. 도매시장 시세를 매장 단위 수요로 바꾸는 5단계 전처리 파이프라인과 앙상블 수요예측 모델(MAPE 29% → 16%, 과적합 63% 감소), FastAPI 서버, 관리자 대시보드
-  link: /projects/keeping/
+  link: /projects/keeping-web/
 - period: 2025.01 – 2025.12
   type: 학생회
   title: 유통물류학과 학생회 총무
@@ -34,7 +34,7 @@
   org: 경상국립대학교 창업지원단 · 3인 팀 팀장
   detail: 진주 특산품(냉면 육수 · 배 · 참다래 · 단감)을 엑기스로 농축한 칵테일 키트. 여행객 인터뷰 → 시장 분석 → 원가 · 진입 전략 수립, 우수상(상금 150만 원)
   link: /awards/gnu-startup-team/
-- period: "2024.( 빈칸: 월 )"
+- period: 2024.11
   type: 창업
   title: 창업교과목 연계 아이디어톤 장려상 — AI 건강관리 플랫폼 「APT」
   org: 경상국립대학교 · 개인 참가

@@ -1,12 +1,12 @@
 ---
-title: Keeping — AI 매장 비서
+title: Keeping 2차 — AI 매장 비서 앱
 order: 1
 roles: [Backend, AI, Mobile]
 category: 모바일 앱 · AI 에이전트 · 수요예측
 summary: 소규모 식당의 재고를 대신 지켜보다가 부족·소비기한 임박 품목을 감지해 발주 초안을 자동 생성하고, 사장님은 승인만 하면 장바구니·결제·입고까지 이어지는 AI 매장 비서 앱
-period: 2025.09 – 2025.12 (1차 웹 버전 · 린스타트업 MVP) · 2026.03 – 2026.06 (모바일 고도화)
+period: 2026.03 – 2026.06
 role: "백엔드 AI 발주 로직 · 수요예측 연동 · 모바일 화면(수요예측·회원가입·거래처·장바구니) · 온보딩 문서"
-team: 1차 3인 → 고도화 5인
+team: 5인 팀
 stack: [Python, FastAPI, SQLAlchemy, Supabase PostgreSQL, XGBoost · LightGBM · RandomForest, Gemini API, MCP (fastmcp), Expo (React Native), TypeScript, Zustand, TanStack Query]
 thumbnail: /assets/img/keeping.png
 # 팀 저장소(dlgusw0/Keeping2)는 비공개. 공개용 저장소를 만들면 아래 주석 해제
@@ -32,48 +32,10 @@ thumbnail: /assets/img/keeping.png
 
 | 시기 | 단계 | 팀 | 내용 |
 |------|------|-----|------|
-| 2025.09 – 2025.12 | **1차 · 웹 버전** | 3인 (E조) | 소상공인 재고 · 발주 자동화 웹 플랫폼. FastAPI 서버, 재고 관리, 상품 판매 · 구매, 관리자 대시보드, Gemini 챗봇, 앙상블 수요예측 모델 |
-| 2025.11 – 2025.12 | **린스타트업 스쿨 MVP** | 팀 Autoful | 2025 동남권 린스타트업 스쿨 외주 용역비로 안드로이드 MVP 앱 제작을 발주. 과업지시서 작성 · 검수 · 인수 |
-| 2026.03 – 2026.06 | **2차 · 모바일 고도화** | 5인 | Expo 앱으로 재구축. AI 발주 엔진, POS 연동, 거래처 · 결제 · 자동 입고, 온보딩 |
+| 2025.09 – 2025.12 | 1차 · 웹 버전 · 린스타트업 MVP | 3인 / 팀 Autoful | 웹 플랫폼과 수요예측 파이프라인, MVP 앱 외주 발주 → [1차 프로젝트 보기](/projects/keeping-web/) |
+| 2026.03 – 2026.06 | **2차 · 모바일 고도화 (이 페이지)** | 5인 | Expo 앱으로 재구축. AI 발주 엔진, POS 연동, 거래처 · 결제 · 자동 입고, 온보딩 |
 
-### 1차 웹 버전 (2025)
-
-수기 장부와 카카오톡 · 전화 발주 때문에 생기는 발주 누락과 과잉 재고를 줄이자는 문제의식에서 시작했습니다. 구독형 SaaS(무료 · 유료 · 프리미엄)를 비즈니스 모델로 잡고 웹 플랫폼을 만들었습니다.
-
-<div class="chart-row">
-  <figure class="chart"><img src="/assets/img/keeping/web/admin.jpg" alt="웹 버전 관리자 대시보드" loading="lazy"><figcaption>관리자 대시보드 — 사용자 · 재고 · 대화 현황과 사용자 관리</figcaption></figure>
-  <figure class="chart"><img src="/assets/img/keeping/web/purchase.jpg" alt="웹 버전 상품 구매" loading="lazy"><figcaption>상품 구매 — 공급업체별 식자재 검색과 장바구니</figcaption></figure>
-</div>
-
-**도매시장 데이터를 매장 단위 수요로 바꾸는 5단계 전처리 파이프라인**
-
-수요예측의 가장 큰 난관은 학습 데이터였습니다. 구할 수 있는 건 KAMIS 도매시장 경매 시세 같은 거시(Macro) 데이터인데, 예측해야 하는 건 식당 한 곳의 kg 단위 발주량입니다.
-
-1. **거래량 가중 평균 시세**: 소량 특수 거래가 평균을 왜곡하지 않도록 거래량으로 가중 (단순 평균 1,000원 → 보정 1,490원)
-2. **식당 수 필터링 · 중앙값 보정**: 식당 100개 미만 지역은 전국 중앙값(약 2,278개)으로 보정해 분모 폭발 방지
-3. **Micro Demand 수식 변환**: 품목별 사용률(Usage Rate)과 현실적 상한을 적용해 사업장 단위 수요 추정
-4. **검색 트렌드 결합**: 네이버 검색 트렌드를 선행 지표로 넣어 이벤트성 수요 반영
-5. **Lag 기반 시계열 구조화**: 7일 · 14일 평균 수요를 lag 피처로 만들고 시계열 누수를 차단
-
-| 지표 | 개선 전 | 개선 후 |
-|------|--------|--------|
-| MAPE | 29.3% | **16.0%** |
-| R² | 0.593 | **0.837** |
-| 과적합 정도 (Train/Test 격차) | 0.212 | **0.078** (63% 감소) |
-
-피처 중요도는 7일 평균 수요 35.8%, 14일 평균 수요 33.9%로, 수요는 단기 패턴을 중심으로 움직인다는 것을 확인했습니다. 평균 예측 오차는 1kg 이하였고 다음 목표를 MAPE 12~14%로 잡았습니다.
-
-### 린스타트업 스쿨 MVP (2025.11 – 12)
-
-2025 동남권 린스타트업 스쿨에 팀 Autoful로 참여하면서, 외주 용역비로 안드로이드 MVP 앱 제작을 발주했습니다. 이때는 개발자가 아니라 **발주자** 역할이었습니다.
-
-- 과업지시서 작성: 재고 현황 조회, KAMIS 식자재 시세 연동, 원클릭 발주(재고 수량별 색상 안내 · 주문 문자 발송), 챗봇형 고객응대 UI, 관리자 백오피스
-- 보안 · 지식재산권 · 하자보수 조건 정의, 개발사(백슬래시파트너스) 산출물 검수, APK와 소스코드 인수
-- 짧은 일정에 요구사항을 문서로 정확히 전달하는 것이 결과물 품질을 좌우한다는 것을 배웠고, 이 MVP와 웹 버전의 경험을 합쳐 2026년 모바일 고도화의 요구사항(PRD)을 직접 썼습니다.
-
-<figure class="chart"><img src="/assets/img/keeping/autoful_mvp.jpg" alt="린스타트업 스쿨 MVP 앱 화면" loading="lazy"><figcaption>외주 제작 MVP 「오늘의 발주」 — 재고 목록과 KAMIS 시세 예측 화면</figcaption></figure>
-
-## 앱 화면 (2차 · 모바일)
+## 앱 화면
 
 <div class="screens">
   <figure><img src="/assets/img/keeping/screens/01_home.jpg" alt="홈" loading="lazy"><figcaption><b>홈</b> — 이번 주 AI 발주 제안서, 재고 상태(충분/주의/위험), 긴급 발주 품목, 경남 수요 영향 이벤트</figcaption></figure>
@@ -90,7 +52,7 @@ thumbnail: /assets/img/keeping.png
   <figure><img src="/assets/img/keeping/screens/12_profile.jpg" alt="프로필" loading="lazy"><figcaption><b>프로필</b> — 계정 · 매장 · 지역 설정</figcaption></figure>
 </div>
 
-## 아키텍처 (2차 · 모바일)
+## 아키텍처
 
 <figure class="chart">
   <img src="/assets/img/keeping/architecture.jpg" alt="Keeping 시스템 아키텍처" loading="lazy">
