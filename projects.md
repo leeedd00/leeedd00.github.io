@@ -1,6 +1,5 @@
 ---
 title: Projects
-subtitle: 지금까지 진행한 프로젝트들입니다
 ---
 
 <div class="grid-3">
