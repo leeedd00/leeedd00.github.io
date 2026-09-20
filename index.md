@@ -4,13 +4,17 @@ title: About Me
 ---
 
 <section class="hero">
+  <p class="links contact-row">
+    <a class="btn sm" href="mailto:{{ site.author.email }}">✉ Email</a>
+    <a class="btn sm" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn sm" href="https://www.linkedin.com/in/%EB%8F%99%EA%B1%B4-%EC%9D%B4-5b73753a5/" target="_blank" rel="noopener">LinkedIn ↗</a>
+  </p>
   <p class="eyebrow">AI · Distribution & Logistics</p>
   <h1>안녕하세요,<br>이동건 (Ethan) 입니다.</h1>
   <p class="lead">( 빈칸: 나를 한 줄로 소개하는 문장 )</p>
   <p class="hero-sub">경상국립대학교 유통물류학 & 컴퓨터공학 복수전공</p>
   <p class="links">
     <a class="btn primary" href="{{ '/projects/' | relative_url }}">프로젝트 보기</a>
-    <a class="btn" href="{{ '/contact/' | relative_url }}">연락하기</a>
   </p>
 </section>
 

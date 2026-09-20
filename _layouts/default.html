@@ -22,7 +22,6 @@
           <a href="{{ '/' | relative_url }}" {% if here == '/' %}class="on"{% endif %}>About Me</a>
           <a href="{{ '/experience/' | relative_url }}" {% if here contains '/experience/' %}class="on"{% endif %}>Experience</a>
           <a href="{{ '/education/' | relative_url }}" {% if here contains '/education/' %}class="on"{% endif %}>Education</a>
-          <a href="{{ '/contact/' | relative_url }}" {% if here contains '/contact/' %}class="on"{% endif %}>Contact</a>
         </div>
         <span class="menu-divider"></span>
         <div class="menu-group">
@@ -39,7 +38,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      © {{ 'now' | date: "%Y" }} {{ site.author.name }} · <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a> · <a href="https://github.com/{{ site.author.github }}">GitHub</a>
+      © {{ 'now' | date: "%Y" }} {{ site.author.name }} · <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a> · <a href="https://github.com/{{ site.author.github }}">GitHub</a> · <a href="https://www.linkedin.com/in/%EB%8F%99%EA%B1%B4-%EC%9D%B4-5b73753a5/">LinkedIn</a>
     </div>
   </footer>
 </body>

@@ -168,3 +168,7 @@ p { margin: 0 0 .75rem; }
 
 /* 경험 타임라인 유형 태그 */
 .type-tag { display: inline-block; vertical-align: middle; margin-right: .5rem; padding: .12rem .55rem; border-radius: 999px; background: var(--tag-bg); color: var(--tag-fg); font-size: .75rem; font-weight: 700; }
+
+/* About Me 상단 연락처 버튼 */
+.contact-row { margin: 0 0 1.75rem; }
+.btn.sm { padding: .38rem .85rem; font-size: .88rem; border-radius: 999px; }
