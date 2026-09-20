@@ -1,14 +1,19 @@
 ---
 title: 기후변화 대응 작물 수확량 예측 · 최적 재배치
 order: 2
-roles: ["( 확인: 예) ML, Data )"]
+roles: [ML, Data]
 category: 데이터 분석 · 머신러닝 · 최적화
 summary: 미국 2,600개 카운티 35년 기후·토양 데이터로 작물 수확량을 예측하고, +2℃ 온난화 시 어느 카운티에 무엇을 심어야 손실을 최소화하는지 메타휴리스틱으로 최적화한 Purdue 해외 연구 프로그램 팀 프로젝트
 period: 2026.06 – 2026.07
 role: "( 확인: 예) 데이터 전처리 · 수확량 예측 모델 · 기후 시나리오 생성 )"
 team: 4인 팀 (Team 07)
 stack: [Python, Pandas, scikit-learn, LightGBM, Genetic Algorithm, Simulated Annealing, Tabu Search, Matplotlib]
-# thumbnail: /assets/img/purdue.png   ← 발표 슬라이드 캡처 넣고 주석 해제
+thumbnail: /assets/img/purdue/presentation.jpg
+photos:
+  - src: /assets/img/purdue/presentation.jpg
+    caption: ML 발표 — 옥수수 수확량의 기술 추세와 연도별 기상 충격 분리
+  - src: /assets/img/purdue/certificate.jpg
+    caption: PAGE South Korea Program on Big Data & AI 수료 (Purdue University, 2026.07)
 links:
   - label: GitHub
     url: "( 빈칸: 팀 코드 저장소 URL )"
@@ -44,9 +49,25 @@ links:
 - 예측용 모델과 해석용 모델을 분리. 카운티·연도 고정효과 모델로 **"온화한 하루가 29℃ 초과 하루로 바뀌면 옥수수 −1.67 bu/ac (t≈−60)"** 추정
 - 작물별 고온 민감도: 옥수수 −1.67 > 대두 −0.39 > 밀 −0.17. 이 차이가 재배치의 근거
 
+<div class="chart-row">
+  <figure class="chart">
+    <img src="/assets/img/purdue/extreme_gdd.png" alt="고온(30℃ 이상) 노출량과 수확량의 관계" loading="lazy">
+    <figcaption>고온 노출량 vs 수확량 — 임계치를 넘으면 급격히 꺾이는 비선형 반응</figcaption>
+  </figure>
+  <figure class="chart">
+    <img src="/assets/img/purdue/feature_importance.png" alt="피처 중요도" loading="lazy">
+    <figcaption>Permutation 피처 중요도 — 연도(기술 추세), 토양 pH, 온도 변수 순</figcaption>
+  </figure>
+</div>
+
 **+2℃ 시나리오 생성**
 
 경험적 추세 외삽 대신 각 카운티의 최근 10년 기후 평년의 온도 분포를 +2℃ 평행이동하고(총 노출일수 184일 보존), 트리 모델의 외삽을 막기 위해 연도를 2015로 고정해 순수 기후 효과만 분리했습니다. 무조정 시 전국 수확량 약 −9%, 카운티의 79%가 손해를 보며 피해는 남부에 집중됐습니다.
+
+<figure class="chart">
+  <img src="/assets/img/purdue/scenario_yield.png" alt="+ΔT 시나리오별 옥수수 수확량 변화" loading="lazy">
+  <figcaption>온난화 시나리오별 카운티 수확량 변화</figcaption>
+</figure>
 
 ## 2단계: 최적 작물 배치 (최적화)
 

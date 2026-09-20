@@ -9,9 +9,10 @@ role: "백엔드 AI 발주 로직 · 수요예측 연동 · 모바일 화면(수
 team: 5인 팀
 stack: [Python, FastAPI, SQLAlchemy, Supabase PostgreSQL, LightGBM, Gemini API, MCP, Expo (React Native), TypeScript, Zustand, TanStack Query]
 thumbnail: /assets/img/keeping.png
-links:
-  - label: GitHub
-    url: https://github.com/dlgusw0/Keeping2
+# 팀 저장소(dlgusw0/Keeping2)는 비공개. 공개용 저장소를 만들면 아래 주석 해제
+# links:
+#   - label: GitHub
+#     url: https://github.com/leeedd00/keeping-showcase
 ---
 
 ## 문제 인식

@@ -28,4 +28,18 @@ layout: default
   {% endif %}
 
   <div class="prose">{{ content }}</div>
+
+  {% if page.photos %}
+  <section class="photos">
+    <h2>사진</h2>
+    <div class="photo-grid">
+      {% for ph in page.photos %}
+      <figure>
+        <img src="{{ ph.src | relative_url }}" alt="{{ ph.caption }}" loading="lazy">
+        {% if ph.caption %}<figcaption>{{ ph.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 </article>

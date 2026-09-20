@@ -142,3 +142,15 @@ p { margin: 0 0 .75rem; }
 .card-body .tags { margin: 0 0 .5rem; }
 
 
+
+/* ---------- 프로젝트 사진 · 그래프 ---------- */
+.prose figure.chart { margin: 1.25rem 0; }
+.prose figure.chart img { border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.prose figure.chart figcaption, .photo-grid figcaption { font-size: .88rem; color: var(--muted); margin-top: .4rem; }
+.chart-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.chart-row figure.chart { margin: .5rem 0; }
+.photos { margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.photos h2 { font-size: 1.3rem; }
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.photo-grid figure { margin: 0; }
+.photo-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
