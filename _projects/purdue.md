@@ -8,7 +8,7 @@ period: 2026.06 – 2026.07
 role: "( 확인: 예) 데이터 전처리 · 수확량 예측 모델 · 기후 시나리오 생성 )"
 team: 4인 팀 (Team 07)
 stack: [Python, Pandas, scikit-learn, LightGBM, Genetic Algorithm, Simulated Annealing, Tabu Search, Matplotlib]
-thumbnail: /assets/img/purdue/presentation.jpg
+thumbnail: /assets/img/purdue/certificate.jpg
 photos:
   - src: /assets/img/purdue/presentation.jpg
     caption: ML 발표 — 옥수수 수확량의 기술 추세와 연도별 기상 충격 분리
