@@ -5,12 +5,12 @@
   detail: 미국 2,600개 카운티 35년 기후·토양 데이터로 작물 수확량을 예측(LightGBM R² 0.73)하고, +2℃ 시나리오에서 GA·SA·TS 메타휴리스틱으로 최적 작물 배치를 도출. 농지 8% 재배치로 온난화 손실 17% 회복
   link: /projects/purdue/
 - period: 2026.03 – 2026.06
-  title: 재고관리 어플 고도화
-  org: "( 빈칸 )"
-  detail: "( 빈칸 )"
+  title: Keeping 고도화 — AI 발주 엔진 · 수요예측 연동
+  org: 5인 팀 프로젝트
+  detail: LLM이 모든 판단을 하던 구조를 "수요예측 모델 + 수식이 판단, LLM은 설명만"으로 바꿔 API 비용과 장애 의존도를 줄임. 발주 로직 일원화, 거래처 단위 환산, 수요예측·회원가입·거래처·장바구니 화면 구현
   link: /projects/keeping/
 - period: 2025.09 – 2025.12
-  title: 린스타트업 · 재고관리 어플 외주
-  org: "( 빈칸 )"
-  detail: "( 빈칸 )"
+  title: 린스타트업 · Keeping 재고관리 앱 외주
+  org: "( 빈칸: 발주처 / 프로그램명 )"
+  detail: 소규모 식당용 AI 매장 비서 앱 1차 개발. FastAPI 백엔드, Expo 모바일, LightGBM 수요예측 모델(MAPE 29% → 16% 개선)
   link: /projects/keeping/
