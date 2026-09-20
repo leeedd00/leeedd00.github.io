@@ -23,9 +23,6 @@ layout: default
     {% endif %}
   </header>
 
-  {% if page.thumbnail %}
-  <figure class="hero-img"><img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }} 화면"></figure>
-  {% endif %}
 
   <div class="prose">{{ content }}</div>
 
