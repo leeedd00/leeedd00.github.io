@@ -28,6 +28,23 @@ thumbnail: /assets/img/keeping.png
 
 > 재고 부족 · 소비기한 임박 감지 → AI 발주 초안 생성(근거 포함) → 사장님 승인 → 장바구니 자동 구성 → 결제 → 재고 자동 입고
 
+## 앱 화면
+
+<div class="screens">
+  <figure><img src="/assets/img/keeping/screens/01_home.jpg" alt="홈" loading="lazy"><figcaption><b>홈</b> — 이번 주 AI 발주 제안서, 재고 상태(충분/주의/위험), 긴급 발주 품목, 경남 수요 영향 이벤트</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/02_orders.jpg" alt="발주 — AI 발주 초안" loading="lazy"><figcaption><b>발주 — AI 발주 초안</b> — 품목별 발주량과 근거(예측 수요 · 안전재고 · 소비기한 · 폐기위험)를 보여주고 전체 승인으로 장바구니 구성</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/03_inventory.jpg" alt="재고" loading="lazy"><figcaption><b>재고</b> — 품목별 현재고 · 소비기한 D-day · 상태 색상, 입고/차감 처리와 바코드 스캔</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/04_forecast.jpg" alt="수요예측" loading="lazy"><figcaption><b>수요예측</b> — 재료별 주간 소요량 · 현재고 · 폐기 예정량과 폐기 위험 등급</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/05_cart.jpg" alt="장바구니" loading="lazy"><figcaption><b>장바구니</b> — 승인한 발주 초안이 거래처 단가로 자동 구성됨</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/06_checkout.jpg" alt="결제" loading="lazy"><figcaption><b>결제</b> — 거래처 계좌 정보와 품목 합계, 결제 확정 시 재고 자동 입고</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/07_chatbot.jpg" alt="AI 챗봇" loading="lazy"><figcaption><b>AI 챗봇</b> — 재고 확인 · 장바구니 담기 · 발주 계획 수립을 자연어로 요청</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/08_vendors.jpg" alt="거래처 관리" loading="lazy"><figcaption><b>거래처 관리</b> — 거래처 계좌 · 취급 품목 · 단가 등록</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/09_recipes.jpg" alt="레시피" loading="lazy"><figcaption><b>레시피</b> — 메뉴별 재료 구성(BOM). POS 판매 시 이 기준으로 재고 차감</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/10_sales.jpg" alt="판매량 입력" loading="lazy"><figcaption><b>판매량 입력</b> — POS 연동 전 수동 판매 입력 — 재고 차감과 수요 학습 데이터로 반영</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/11_store.jpg" alt="내 가게 관리" loading="lazy"><figcaption><b>내 가게 관리</b> — 업종 · 좌석 수 · 상권 유형 등 수요예측에 쓰이는 매장 정보</figcaption></figure>
+  <figure><img src="/assets/img/keeping/screens/12_profile.jpg" alt="프로필" loading="lazy"><figcaption><b>프로필</b> — 계정 · 매장 · 지역 설정</figcaption></figure>
+</div>
+
 ## 아키텍처
 
 <figure class="chart">
@@ -37,11 +54,16 @@ thumbnail: /assets/img/keeping.png
 
 **핵심 데이터 흐름**
 
-1. POS 판매 신호가 들어오면 레시피 기준으로 재료 재고를 차감하고, 일별 소진 로그를 남깁니다. 이 로그가 수요예측 모델의 학습 데이터가 됩니다.
+1. POS 판매 신호가 들어오면 레시피(BOM) 기준으로 재료 재고를 차감하고, 일별 소진 로그를 남깁니다. 이 로그가 수요예측 모델의 학습 데이터가 됩니다.
 2. Model A(XGBoost + LightGBM + RandomForest Voting 앙상블)가 날씨 체감지수, 공휴일, 지역 축제, 대학 학사일정을 피처로 품목별 수요를 예측합니다.
 3. 발주 엔진이 "예측 수요 + 유통기한 + 안전재고"를 종합해 품목별 발주량과 근거를 계산합니다.
 4. Gemini가 그 결과를 사장님이 읽기 쉬운 2~3문장으로 설명합니다.
 5. 사장님이 승인하면 장바구니가 구성되고, 결제 후 재고가 자동 입고됩니다.
+
+<figure class="chart">
+  <img src="/assets/img/keeping/pos_flow.jpg" alt="POS 판매 → 레시피 실행 → 재고 차감 자동화 흐름" loading="lazy">
+  <figcaption>POS 판매 1건이 레시피 기준 출고와 재고 차감으로 자동 반영되는 흐름</figcaption>
+</figure>
 
 ## 가장 큰 문제: LLM API 비용
 
@@ -100,15 +122,26 @@ order_qty     = max(demand_order, safety_order)
 - **구매 프로세스**: 승인 → 장바구니 → 결제 → 재고 자동 입고 흐름 정리와 버그 수정
 - **온보딩 문서**: 새 팀원이 문서 하나로 프로젝트 전체를 잡을 수 있도록 실제 코드 동작 기준의 온보딩 가이드 작성
 
-## 수요예측 모델 성과
+## 수요예측 모델
 
-| 지표 | 기존 모델 | 개선 모델 |
-|------|----------|----------|
-| MAPE | 29.3% | **16.0%** |
-| R² | 0.593 | **0.837** |
-| 과적합 정도 | 0.212 | **0.078** |
+**Model A — 혼잡도 예측 → 발주량 계산**
 
-네이버 검색 트렌드를 선행 지표로 넣은 것이 가장 큰 개선 요인이었습니다. MAPE 16%는 재고 계획에 실용적으로 쓸 수 있는 수준입니다.
+| 항목 | 내용 |
+|------|------|
+| 구조 | LightGBM 40% + XGBoost 40% + Random Forest 20% Voting 앙상블 |
+| 입력 피처 18개 | POS 최근 7일 판매량 lag, 기온·습도 기반 불쾌지수, 축제까지의 거리 감쇠값, 요일·계절·공휴일·방학·시험기간 |
+| 예측 대상 | 3일치 가게 좌석 점유율(혼잡도, 0~1) |
+| 성능 | 학습 데이터 300,000건 기준 **MAE 0.040 · R² 0.887** (혼잡도 ±4% 오차, 실용 기준 ±20% 이내) |
+| 재학습 | 실제 POS 판매 데이터가 30일 이상 쌓이면 자동 재학습, 90/10 분할로 MAE·R² 검증 후 새 모델 저장 |
+
+<figure class="chart">
+  <img src="/assets/img/keeping/model_metrics.png" alt="수요예측 모델 성능 지표" loading="lazy">
+  <figcaption>Model A 성능 지표와 피처 중요도 — POS 판매량 lag가 가장 큰 영향</figcaption>
+</figure>
+
+발주량은 "혼잡도 × 좌석 수 = 예상 방문객 수 → 레시피 1인당 재료 × 방문객 = 예상 소비량 → 예상 소비량 − 사용 가능한 현재고 = 발주량" 순서로 계산됩니다.
+
+**한계와 대응**: 초기에는 실거래 데이터가 없어 시뮬레이션 데이터로 학습했기 때문에 예측 오차가 큽니다. 그래서 Day 0에는 휴리스틱 100%, Day 30부터 ML 50% + 휴리스틱 50%, Day 100 이후 실제 데이터 중심의 매장 맞춤 예측으로 비중을 옮기는 단계적 전환을 설계했습니다.
 
 ## 배운 점
 
