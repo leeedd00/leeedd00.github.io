@@ -7,7 +7,7 @@ summary: 소규모 식당의 재고를 대신 지켜보다가 부족·소비기�
 period: 2025.09 – 2025.12 (린스타트업 외주) · 2026.03 – 2026.06 (고도화)
 role: "백엔드 AI 발주 로직 · 수요예측 연동 · 모바일 화면(수요예측·회원가입·거래처·장바구니) · 온보딩 문서"
 team: 5인 팀
-stack: [Python, FastAPI, SQLAlchemy, Supabase PostgreSQL, LightGBM, Gemini API, MCP, Expo (React Native), TypeScript, Zustand, TanStack Query]
+stack: [Python, FastAPI, SQLAlchemy, Supabase PostgreSQL, XGBoost · LightGBM · RandomForest, Gemini API, MCP (fastmcp), Expo (React Native), TypeScript, Zustand, TanStack Query]
 thumbnail: /assets/img/keeping.png
 # 팀 저장소(dlgusw0/Keeping2)는 비공개. 공개용 저장소를 만들면 아래 주석 해제
 # links:
@@ -30,37 +30,15 @@ thumbnail: /assets/img/keeping.png
 
 ## 아키텍처
 
-```
-                        사장님 (모바일 앱)
-                              │  HTTP + JWT
-                              ▼
-┌────────────────────────────────────────────────────────┐
-│  Mobile  (Expo / React Native)                          │
-│  로그인 · 재고 · 발주 승인 · AI 챗봇 · 수요예측 · 거래처 · 결제  │
-└────────────────────────────────────────────────────────┘
-                              │  :8000
-                              ▼
-┌────────────────────────────────────────────────────────┐
-│  Backend  (FastAPI / SQLAlchemy)                        │
-│  19개 라우터 · 백그라운드 스케줄러 3종 (날씨 캐시 · 모델 재학습 · 분할발주) │
-└────────────────────────────────────────────────────────┘
-        │                     │                      │
-        ▼                     ▼                      ▼
-┌──────────────┐    ┌──────────────────┐    ┌──────────────────────┐
-│ Supabase     │    │ AI Model A       │    │ 외부 API              │
-│ PostgreSQL   │    │ LightGBM 수요예측  │    │ Gemini · KAMIS 시세    │
-│ (메인 DB)     │    │ 7일마다 자동 재학습 │    │ 기상청 · PortOne 결제   │
-└──────────────┘    └──────────────────┘    └──────────────────────┘
-        ▲  판매 신호 → 재고 자동 차감
-┌────────────────────────────────────────────────────────┐
-│  Mock POS  (FastAPI :8080) — 실제 POS 단말기를 흉내내는 데모용   │
-└────────────────────────────────────────────────────────┘
-```
+<figure class="chart">
+  <img src="/assets/img/keeping/architecture.jpg" alt="Keeping 시스템 아키텍처" loading="lazy">
+  <figcaption>모바일(Expo) — HTTP 클라이언트 — 백엔드(FastAPI + MCP 서버 + AI 모델) — DB(Supabase PostgreSQL) — 외부 API(Gemini · OpenWeather · Kakao · KAMIS)</figcaption>
+</figure>
 
 **핵심 데이터 흐름**
 
 1. POS 판매 신호가 들어오면 레시피 기준으로 재료 재고를 차감하고, 일별 소진 로그를 남깁니다. 이 로그가 수요예측 모델의 학습 데이터가 됩니다.
-2. Model A가 날씨 체감지수, 공휴일, 지역 축제, 대학 학사일정을 피처로 품목별 수요를 예측합니다.
+2. Model A(XGBoost + LightGBM + RandomForest Voting 앙상블)가 날씨 체감지수, 공휴일, 지역 축제, 대학 학사일정을 피처로 품목별 수요를 예측합니다.
 3. 발주 엔진이 "예측 수요 + 유통기한 + 안전재고"를 종합해 품목별 발주량과 근거를 계산합니다.
 4. Gemini가 그 결과를 사장님이 읽기 쉬운 2~3문장으로 설명합니다.
 5. 사장님이 승인하면 장바구니가 구성되고, 결제 후 재고가 자동 입고됩니다.

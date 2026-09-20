@@ -12,5 +12,5 @@
 - period: 2025.09 – 2025.12
   title: 린스타트업 · Keeping 재고관리 앱 외주
   org: "( 빈칸: 발주처 / 프로그램명 )"
-  detail: 소규모 식당용 AI 매장 비서 앱 1차 개발. FastAPI 백엔드, Expo 모바일, LightGBM 수요예측 모델(MAPE 29% → 16% 개선)
+  detail: 소규모 식당용 AI 매장 비서 앱 1차 개발. FastAPI 백엔드, Expo 모바일, XGBoost·LightGBM·RF 앙상블 수요예측 모델(MAPE 29% → 16% 개선)
   link: /projects/keeping/
